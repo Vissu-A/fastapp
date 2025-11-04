@@ -1,0 +1,57 @@
+fastapp/
+├── src/
+│   ├── api/                 # API route handlers
+│   │   ├── v1/             # API version 1
+│   │   └── v2/             # API version 2
+│   ├── core/               # Core application components
+│   │   ├── config.py       # Configuration settings
+│   │   ├── events.py       # Application event handlers
+│   │   ├── logging.py      # Logging configuration
+│   │   └── security.py     # Security utilities
+│   ├── db/                 # Database related code
+│   │   └── __init__.py
+│   ├── logs/              # Log files directory
+│   ├── middleware/        # Custom middleware
+│   │   └── cors.py       # CORS middleware
+│   ├── models/           # SQLAlchemy models
+│   │   └── __init__.py
+│   ├── schemas/          # Pydantic models
+│   │   └── __init__.py
+│   ├── services/         # Business logic
+│   └── utils/            # Utility functions
+├── tests/               # Test directory
+│   └── __init__.py
+├── Dockerfile          # Docker configuration
+├── requirements.txt    # Project dependencies
+└── README.md          # Project documentation
+
+
+Key components and their purposes:
+
+core:
+
+config.py: Configuration management using Pydantic settings
+events.py: Application startup/shutdown event handlers
+logging.py: Centralized logging configuration using Loguru
+security.py: Security utilities (JWT, password hashing)
+middleware:
+
+Contains custom middleware like CORS configuration
+Can be extended with rate limiting, authentication, etc.
+api:
+
+Versioned API routes (v1, v2)
+Separation of concerns for different API versions
+services:
+
+Business logic implementation
+Separation from API routes for better maintainability
+models and schemas:
+
+Clear separation between database models and API schemas
+Type safety and validation
+logs:
+
+Centralized logging storage
+Configured with rotation and compression
+To get started with this structure:
