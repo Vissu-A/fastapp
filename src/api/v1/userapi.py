@@ -66,6 +66,8 @@ def get_user_info(
 
 ## Validators
 # we can also add validators to the parameters using metadata.
+# string validators: max_length, min_length and regex
+# number validators: gt, ge, lt, le
 
 @router.get(
     path="/search/",
@@ -132,3 +134,5 @@ def search_by_nickname(
     return {
         "Message": f"Here is the list of users macthed with give nick names: {nick_names}"
     }
+
+
