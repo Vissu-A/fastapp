@@ -1,18 +1,30 @@
-from sqlalchemy import Column
-from sqlalchemy.sql.sqltypes import UUID, String, Enum, Date, Boolean, DateTime
+from sqlalchemy import Column, UniqueConstraint
+from sqlalchemy.sql.sqltypes import Uuid, String, Date, Enum, DateTime, Boolean
 
 from src.db.database import Base
 
 class UserModel(Base):
     __tablename__ = "user"
-    uid = Column(UUID, primary_key=True, index=True)
-    fullname = Column(String)
-    username = Column(String)
-    email = Column(String)
+    # # auto filled fileds
+    uid = Column(Uuid, primary_key=True, index=True)
+    # dojoin = Column(DateTime)
+    # dologin = Column(DateTime)
+
+    # # Role identity fields
+    # is_active = Column(Boolean)
+    # is_admin = Column(Boolean)
+
+    # user input fields
+    username = Column(String, unique=True)
+    email = Column(String, unique=True)
     passcode = Column(String)
-    gender = Column(Enum)
     dob = Column(Date)
-    is_active = Column(Boolean)
-    is_admin = Column(Boolean)
-    dojoin = Column(DateTime)
-    dologin = Column(DateTime)
+    gender = Column(String)
+
+    __table_args__ = (
+        UniqueConstraint('email', name="uq_user_email"),
+        UniqueConstraint('username', name="uq_user_username")
+    )
+
+
+# Relationships
