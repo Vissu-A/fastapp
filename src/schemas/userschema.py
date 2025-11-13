@@ -10,7 +10,7 @@ class Gender(str, Enum):
     FEMALE = "Female"
 
 class UserSchema(BaseModel):
-    uid: uuid
+    uid: uuid4
     fullname: str = Field(
         description= "Please enter your full name",
         max_length=50

@@ -15,16 +15,16 @@ class UserModel(Base):
     # is_admin = Column(Boolean)
 
     # user input fields
-    username = Column(String, unique=True)
-    email = Column(String, unique=True)
+    username = Column(String, unique=True, name="uq_user_username")
+    email = Column(String, unique=True, name="uq_user_email")
     passcode = Column(String)
     dob = Column(Date)
     gender = Column(String)
 
-    __table_args__ = (
-        UniqueConstraint('email', name="uq_user_email"),
-        UniqueConstraint('username', name="uq_user_username")
-    )
+    # __table_args__ = (
+    #     UniqueConstraint('email', name="uq_user_email"),
+    #     UniqueConstraint('username', name="uq_user_username")
+    # )
 
 
 # Relationships

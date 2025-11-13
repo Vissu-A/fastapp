@@ -7,3 +7,7 @@
     - Parameter Validators
     - Multple values to single Parameter
 3. Database
+    - connecting to Database
+    - creating models and schemas
+    - Relationships. Establishing relationship between models
+    - alembic auto migrations. This equilent to Django make migrations

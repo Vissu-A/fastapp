@@ -9,4 +9,3 @@ app = FastAPI()
 # app.include_router(uapi1.router)
 app.include_router(uapi2.router)
 
-user.Base.metadata.create_all(db_engine)
